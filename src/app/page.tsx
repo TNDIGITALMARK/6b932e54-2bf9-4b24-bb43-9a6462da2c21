@@ -121,13 +121,31 @@ export default function MutualAidLanding() {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Floating Decorative Circles */}
+      {/* Floating Decorative Circles - Bold & Playful */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute w-20 h-20 rounded-full bg-[hsl(var(--color-yellow))] opacity-60 top-20 left-10 float" />
-        <div className="absolute w-12 h-12 rounded-full bg-[hsl(var(--color-yellow))] opacity-40 top-40 right-20 float-slow" style={{animationDelay: '1s'}} />
-        <div className="absolute w-16 h-16 rounded-full bg-[hsl(var(--color-yellow))] opacity-50 bottom-40 left-1/4 float" style={{animationDelay: '2s'}} />
-        <div className="absolute w-24 h-24 rounded-full bg-[hsl(var(--color-yellow))] opacity-30 top-1/2 right-10 float-slow" style={{animationDelay: '3s'}} />
-        <div className="absolute w-14 h-14 rounded-full bg-[hsl(var(--color-yellow))] opacity-50 bottom-20 right-1/3 float" style={{animationDelay: '1.5s'}} />
+        {/* Large rotating star burst */}
+        <div className="absolute w-32 h-32 top-20 left-10 rotate-slow opacity-80">
+          <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] rounded-full scale-pulse" />
+        </div>
+
+        {/* Bouncing circles */}
+        <div className="absolute w-16 h-16 rounded-full bg-[hsl(var(--color-yellow))] opacity-70 top-40 right-20 bounce-playful" style={{animationDelay: '0.5s'}} />
+        <div className="absolute w-20 h-20 rounded-full bg-gradient-to-br from-[hsl(var(--color-light-blue))] to-[hsl(213,37%,75%)] opacity-60 bottom-40 left-1/4 float" style={{animationDelay: '1s'}} />
+
+        {/* Wiggling shapes */}
+        <div className="absolute w-24 h-24 top-1/2 right-10 float-slow" style={{animationDelay: '0.3s'}}>
+          <div className="w-full h-full bg-[hsl(var(--color-yellow))] opacity-50 rounded-[40%_60%_70%_30%/60%_30%_70%_40%]" />
+        </div>
+
+        {/* Additional playful elements */}
+        <div className="absolute w-14 h-14 rounded-full bg-[hsl(var(--color-yellow))] opacity-60 bottom-20 right-1/3 float" style={{animationDelay: '0.7s'}} />
+        <div className="absolute w-28 h-28 top-60 left-1/3 opacity-40 scale-pulse" style={{animationDelay: '1.5s'}}>
+          <div className="w-full h-full bg-gradient-to-tr from-[hsl(var(--color-yellow))] to-transparent rounded-full" />
+        </div>
+
+        {/* Scattered small circles */}
+        <div className="absolute w-8 h-8 rounded-full bg-[hsl(var(--color-yellow))] opacity-70 top-1/3 left-1/2 bounce-playful" style={{animationDelay: '2s'}} />
+        <div className="absolute w-10 h-10 rounded-full bg-[hsl(var(--color-light-blue))] opacity-50 bottom-1/3 left-20 float-slow" style={{animationDelay: '2.5s'}} />
       </div>
 
       {/* Fixed Header */}
@@ -163,62 +181,77 @@ export default function MutualAidLanding() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center bg-[hsl(var(--color-navy))] overflow-hidden pt-20">
+      {/* Hero Section - Bold & Dynamic */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[hsl(var(--color-navy))] via-[hsl(220,40%,30%)] to-[hsl(var(--color-dark-navy))] overflow-hidden pt-20">
+        {/* Animated Background Gradients */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-20 gradient-shift"
           style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, hsl(var(--color-yellow)) 0%, transparent 50%), radial-gradient(circle at 80% 80%, hsl(var(--color-light-blue)) 0%, transparent 50%)',
+            backgroundImage: 'radial-gradient(circle at 20% 50%, hsl(var(--color-yellow)) 0%, transparent 50%), radial-gradient(circle at 80% 80%, hsl(var(--color-light-blue)) 0%, transparent 50%), radial-gradient(circle at 50% 20%, hsl(var(--color-yellow)) 0%, transparent 60%)',
             transform: `translateY(${scrollY * 0.5}px)`
           }}
         />
 
+        {/* Decorative Blob Shapes */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[hsl(var(--color-yellow))] opacity-10 rounded-full blur-3xl scale-pulse" style={{animationDelay: '0.5s'}} />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-[hsl(var(--color-light-blue))] opacity-10 rounded-full blur-3xl float" />
+
         <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-white mb-6">
+            <div className="text-white slide-right">
+              <div className="inline-block mb-4 px-6 py-2 bg-[hsl(var(--color-yellow))]/20 border-2 border-[hsl(var(--color-yellow))] rounded-full text-[hsl(var(--color-yellow))] font-bold text-sm pulse-glow">
+                ✨ JOIN THE MOVEMENT
+              </div>
+              <h1 className="text-white mb-6 slide-up" style={{animationDelay: '0.2s'}}>
                 EMPOWERING<br />
-                COMMUNITY, TOGETHER.
+                <span className="bg-gradient-to-r from-[hsl(var(--color-yellow))] via-[hsl(40,92%,66%)] to-[hsl(var(--color-yellow))] bg-clip-text text-transparent gradient-shift">
+                  COMMUNITY
+                </span>, TOGETHER.
               </h1>
-              <p className="text-xl mb-8 text-white/90">
-                Join our mutual aid network and make a difference.
+              <p className="text-xl mb-8 text-white/90 slide-up" style={{animationDelay: '0.3s'}}>
+                Join our mutual aid network and make a <span className="text-[hsl(var(--color-yellow))] font-bold">real difference</span>.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 slide-up" style={{animationDelay: '0.4s'}}>
                 <button
                   onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="btn-gradient text-lg"
+                  className="btn-gradient text-lg pulse-glow transform hover:scale-110 transition-transform"
                 >
-                  DISCOVER YOUR ROLE
+                  🎯 DISCOVER YOUR ROLE
                 </button>
                 <button
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 border-2 border-white text-white rounded-[24px] font-bold hover:bg-white hover:text-[hsl(var(--color-navy))] transition-all"
+                  className="px-8 py-4 border-2 border-[hsl(var(--color-yellow))] text-[hsl(var(--color-yellow))] rounded-[24px] font-bold hover:bg-[hsl(var(--color-yellow))] hover:text-[hsl(var(--color-navy))] transition-all transform hover:scale-105"
                 >
-                  LEARN ABOUT MUTUAL AID
+                  💡 LEARN ABOUT MUTUAL AID
                 </button>
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative zoom-in" style={{animationDelay: '0.5s'}}>
+              {/* Decorative ring behind image */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[hsl(var(--color-yellow))]/30 to-[hsl(var(--color-light-blue))]/30 rounded-full blur-2xl scale-pulse" />
               <img
                 src="/generated/hero-community-new.png"
                 alt="Community working together"
-                className="w-full h-auto float"
+                className="w-full h-auto float relative z-10 rounded-3xl shadow-2xl"
               />
+              {/* Floating emoji decorations */}
+              <div className="absolute -top-8 -right-8 text-6xl bounce-playful" style={{animationDelay: '1s'}}>❤️</div>
+              <div className="absolute -bottom-8 -left-8 text-6xl bounce-playful" style={{animationDelay: '1.5s'}}>🤝</div>
             </div>
           </div>
         </div>
 
-        {/* Timeline Preview Icons */}
-        <div className="absolute bottom-12 left-0 right-0">
+        {/* Timeline Preview Icons - Animated */}
+        <div className="absolute bottom-12 left-0 right-0 fade-in" style={{animationDelay: '0.8s'}}>
           <div className="max-w-5xl mx-auto px-6">
             <div className="grid grid-cols-4 gap-8">
               {timelineData.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[hsl(var(--color-yellow))] flex items-center justify-center text-[hsl(var(--color-navy))] font-bold text-lg shadow-lg">
-                    {item.year === 'TODAY' ? '★' : item.year.slice(0, 2)}
+                <div key={index} className="text-center group cursor-pointer">
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] flex items-center justify-center text-[hsl(var(--color-navy))] font-bold text-lg shadow-lg transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 bounce-playful" style={{animationDelay: `${index * 0.2}s`}}>
+                    {item.year === 'TODAY' ? '⭐' : item.year.slice(0, 2)}
                   </div>
-                  <p className="text-white/70 text-xs font-semibold">{item.year}</p>
+                  <p className="text-white/70 text-xs font-semibold group-hover:text-[hsl(var(--color-yellow))] transition-colors">{item.year}</p>
                 </div>
               ))}
             </div>
@@ -226,10 +259,20 @@ export default function MutualAidLanding() {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section id="timeline" className="relative py-32 bg-[hsl(var(--color-light-blue))]">
+      {/* Timeline Section - Dynamic */}
+      <section id="timeline" className="relative py-32 bg-gradient-to-b from-[hsl(var(--color-light-blue))] via-[hsl(213,35%,70%)] to-[hsl(var(--color-light-blue))] overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-20 right-10 w-64 h-64 bg-[hsl(var(--color-yellow))] opacity-10 rounded-full blur-3xl float-slow" />
+        <div className="absolute bottom-40 left-20 w-80 h-80 bg-white opacity-20 rounded-full blur-3xl scale-pulse" />
+
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center mb-20">THE HISTORY OF MUTUAL AID</h2>
+          <h2 className="text-center mb-8 zoom-in">
+            <span className="inline-block">THE HISTORY OF</span>{' '}
+            <span className="inline-block bg-gradient-to-r from-[hsl(var(--color-navy))] via-[hsl(var(--color-yellow))] to-[hsl(var(--color-navy))] bg-clip-text text-transparent">MUTUAL AID</span>
+          </h2>
+          <p className="text-center text-xl text-[hsl(var(--color-navy))]/80 mb-20 max-w-3xl mx-auto fade-in" style={{animationDelay: '0.2s'}}>
+            From barn raisings to modern networks, community care has always been the heart of human connection
+          </p>
 
           {/* Timeline Connecting Line */}
           <div className="absolute left-1/2 top-48 bottom-32 w-1 bg-[hsl(var(--color-yellow))]/30 hidden md:block" />
@@ -268,103 +311,157 @@ export default function MutualAidLanding() {
         </div>
       </section>
 
-      {/* Our Mutual Aid Section */}
-      <section id="how-it-works" className="relative py-32 bg-white">
+      {/* Our Mutual Aid Section - Bold & Playful */}
+      <section id="how-it-works" className="relative py-32 bg-gradient-to-br from-white via-[hsl(213,30%,95%)] to-white overflow-hidden">
+        {/* Playful background decorations */}
+        <div className="absolute top-10 left-10 w-40 h-40 bg-[hsl(var(--color-yellow))] opacity-10 rounded-full blur-3xl bounce-playful" />
+        <div className="absolute bottom-20 right-20 w-60 h-60 bg-[hsl(var(--color-light-blue))] opacity-15 rounded-full blur-3xl float-slow" />
+
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center mb-20">OUR MUTUAL AID</h2>
+          <h2 className="text-center mb-8 zoom-in">
+            OUR <span className="bg-gradient-to-r from-[hsl(var(--color-yellow))] via-[hsl(40,92%,66%)] to-[hsl(var(--color-yellow))] bg-clip-text text-transparent gradient-shift">MUTUAL AID</span>
+          </h2>
+          <p className="text-center text-xl text-[hsl(var(--color-navy))]/80 mb-20 max-w-3xl mx-auto fade-in" style={{animationDelay: '0.2s'}}>
+            Building solidarity through action 🤝
+          </p>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-[hsl(var(--color-yellow))] rounded-[24px] p-12 shadow-card">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-[hsl(var(--color-navy))] flex items-center justify-center">
+            <div className="bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] rounded-[24px] p-12 shadow-card hover:shadow-hover hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              {/* Animated shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className="w-16 h-16 rounded-full bg-[hsl(var(--color-navy))] flex items-center justify-center scale-pulse">
                   <Heart className="w-8 h-8 text-[hsl(var(--color-yellow))]" />
                 </div>
                 <h3 className="text-[hsl(var(--color-navy))]">CONNECT.<br />SHARE. THRIVE.</h3>
               </div>
-              <p className="text-[hsl(var(--color-navy))] text-lg mb-6">
-                Mutual aid is community care in action. We believe in solidarity, not charity.
+              <p className="text-[hsl(var(--color-navy))] text-lg mb-6 relative z-10">
+                Mutual aid is community care in action. We believe in <span className="font-bold underline decoration-[hsl(var(--color-navy))]/40 decoration-wavy">solidarity, not charity</span>.
                 Our network helps neighbors support each other through shared resources, skills, and time.
               </p>
-              <button className="px-8 py-4 bg-[hsl(var(--color-navy))] text-white rounded-[24px] font-bold hover:scale-105 transition-transform">
-                LEARN MORE
+              <button className="px-8 py-4 bg-[hsl(var(--color-navy))] text-white rounded-[24px] font-bold hover:scale-110 transition-transform relative z-10 shadow-lg">
+                💫 LEARN MORE
               </button>
             </div>
 
-            <div className="bg-[hsl(var(--color-dark-navy))] rounded-[24px] p-12 shadow-card text-white">
-              <h3 className="mb-6">How It Works</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[hsl(var(--color-yellow))] flex items-center justify-center flex-shrink-0 mt-1">
+            <div className="bg-gradient-to-br from-[hsl(var(--color-dark-navy))] to-[hsl(220,35%,28%)] rounded-[24px] p-12 shadow-card hover:shadow-hover hover:scale-105 transition-all duration-300 text-white group relative overflow-hidden">
+              {/* Animated shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(var(--color-yellow))]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+              <h3 className="mb-6 relative z-10">How It Works ⚡</h3>
+              <div className="space-y-4 relative z-10">
+                <div className="flex items-start gap-4 group/item hover:translate-x-2 transition-transform">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] flex items-center justify-center flex-shrink-0 mt-1 bounce-playful" style={{animationDelay: '0s'}}>
                     <span className="text-[hsl(var(--color-navy))] font-bold">1</span>
                   </div>
                   <p className="text-white/90">
-                    <strong className="text-white">Solidarity not charity</strong> - We support each other as equals
+                    <strong className="text-[hsl(var(--color-yellow))]">Solidarity not charity</strong> - We support each other as equals
                   </p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[hsl(var(--color-yellow))] flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="flex items-start gap-4 group/item hover:translate-x-2 transition-transform">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] flex items-center justify-center flex-shrink-0 mt-1 bounce-playful" style={{animationDelay: '0.5s'}}>
                     <span className="text-[hsl(var(--color-navy))] font-bold">2</span>
                   </div>
                   <p className="text-white/90">
-                    <strong className="text-white">Community-led solutions</strong> - Local control and decision making
+                    <strong className="text-[hsl(var(--color-yellow))]">Community-led solutions</strong> - Local control and decision making
                   </p>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[hsl(var(--color-yellow))] flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="flex items-start gap-4 group/item hover:translate-x-2 transition-transform">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] flex items-center justify-center flex-shrink-0 mt-1 bounce-playful" style={{animationDelay: '1s'}}>
                     <span className="text-[hsl(var(--color-navy))] font-bold">3</span>
                   </div>
                   <p className="text-white/90">
-                    <strong className="text-white">Addressing root causes</strong> - Building systemic change together
+                    <strong className="text-[hsl(var(--color-yellow))]">Addressing root causes</strong> - Building systemic change together
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
-                className="mt-8 btn-gradient"
+                className="mt-8 btn-gradient pulse-glow transform hover:scale-110 transition-transform"
               >
-                GET STARTED
+                🚀 GET STARTED
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="benefits" className="relative py-32 bg-[hsl(var(--color-light-blue))]">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center mb-20">WHY JOIN OUR NETWORK</h2>
+      {/* Benefits Section - Playful Grid */}
+      <section id="benefits" className="relative py-32 bg-gradient-to-br from-[hsl(var(--color-light-blue))] via-[hsl(213,35%,70%)] to-[hsl(var(--color-light-blue))] overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--color-yellow))] rounded-full blur-3xl scale-pulse" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl float-slow" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4 px-6 py-2 bg-[hsl(var(--color-yellow))]/30 border-2 border-[hsl(var(--color-yellow))] rounded-full text-[hsl(var(--color-navy))] font-bold text-sm bounce-playful">
+              ✨ AMAZING BENEFITS
+            </div>
+            <h2 className="mb-6 zoom-in">
+              WHY JOIN <span className="bg-gradient-to-r from-[hsl(var(--color-navy))] via-[hsl(var(--color-yellow))] to-[hsl(var(--color-navy))] bg-clip-text text-transparent">OUR NETWORK</span>
+            </h2>
+            <p className="text-xl text-[hsl(var(--color-navy))]/80 max-w-3xl mx-auto fade-in" style={{animationDelay: '0.2s'}}>
+              Discover the powerful impact you can make 💪
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-[hsl(var(--color-yellow))] rounded-[16px] p-8 shadow-card hover:shadow-hover hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] rounded-[24px] p-8 shadow-card hover:shadow-2xl hover:scale-110 hover:-rotate-3 transition-all duration-300 cursor-pointer group relative overflow-hidden"
                 style={{
                   transform: scrollY > 2000 ? 'translateY(0)' : 'translateY(30px)',
                   opacity: scrollY > 2000 ? 1 : 0,
                   transitionDelay: `${index * 100}ms`
                 }}
               >
-                <div className="text-[hsl(var(--color-navy))] mb-4 group-hover:scale-110 transition-transform">
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+
+                <div className="text-[hsl(var(--color-navy))] mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 relative z-10">
                   {benefit.icon}
                 </div>
-                <h4 className="text-[hsl(var(--color-navy))] mb-3 font-bold">{benefit.title}</h4>
-                <p className="text-[hsl(var(--color-navy))]/80">{benefit.description}</p>
+                <h4 className="text-[hsl(var(--color-navy))] mb-3 font-bold relative z-10 group-hover:text-[hsl(var(--color-dark-navy))] transition-colors">{benefit.title}</h4>
+                <p className="text-[hsl(var(--color-navy))]/80 relative z-10">{benefit.description}</p>
+
+                {/* Decorative corner element */}
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[hsl(var(--color-navy))]/10 rounded-full group-hover:scale-150 transition-transform duration-300" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="relative py-32 bg-white">
+      {/* Testimonials Section - Dynamic */}
+      <section id="testimonials" className="relative py-32 bg-gradient-to-br from-white via-[hsl(213,25%,95%)] to-white overflow-hidden">
+        {/* Playful decorations */}
+        <div className="absolute top-10 right-10 w-64 h-64 bg-[hsl(var(--color-light-blue))] opacity-10 rounded-full blur-3xl float" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[hsl(var(--color-yellow))] opacity-10 rounded-full blur-3xl scale-pulse" />
+
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center mb-20">TESTIMONIALS</h2>
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4 px-6 py-2 bg-[hsl(var(--color-light-blue))]/40 border-2 border-[hsl(var(--color-navy))] rounded-full text-[hsl(var(--color-navy))] font-bold text-sm wiggle">
+              ⭐ REAL STORIES
+            </div>
+            <h2 className="zoom-in">
+              <span className="bg-gradient-to-r from-[hsl(var(--color-navy))] via-[hsl(var(--color-yellow))] to-[hsl(var(--color-navy))] bg-clip-text text-transparent">TESTIMONIALS</span>
+            </h2>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-6 mb-16">
             {[Heart, Lightbulb, Users, TrendingUp].map((Icon, index) => (
-              <div key={index} className="bg-[hsl(var(--color-yellow))] rounded-[16px] p-8 shadow-card flex items-center justify-center">
-                <Icon className="w-16 h-16 text-[hsl(var(--color-navy))]" />
+              <div
+                key={index}
+                className="bg-gradient-to-br from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] rounded-[24px] p-8 shadow-card flex items-center justify-center hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer group"
+                style={{
+                  animationDelay: `${index * 0.1}s`
+                }}
+              >
+                <Icon className="w-16 h-16 text-[hsl(var(--color-navy))] group-hover:scale-125 transition-transform bounce-playful" style={{animationDelay: `${index * 0.3}s`}} />
               </div>
             ))}
           </div>
@@ -419,25 +516,47 @@ export default function MutualAidLanding() {
         </div>
       </section>
 
-      {/* Quiz Section */}
-      <section id="quiz" className="relative py-32 bg-[hsl(var(--color-navy))]">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-center mb-8 text-white">DISCOVER YOUR IMPACT</h2>
-          <p className="text-center text-xl text-white/80 mb-12">
-            Take our quiz to find your unique role in building stronger communities
-          </p>
+      {/* Quiz Section - Bold CTA */}
+      <section id="quiz" className="relative py-32 bg-gradient-to-br from-[hsl(var(--color-navy))] via-[hsl(220,40%,30%)] to-[hsl(var(--color-dark-navy))] overflow-hidden">
+        {/* Animated decorations */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[hsl(var(--color-yellow))] opacity-10 rounded-full blur-3xl scale-pulse" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-[hsl(var(--color-light-blue))] opacity-10 rounded-full blur-3xl float-slow" />
 
-          <div className="bg-white rounded-[24px] p-12 shadow-card">
+        {/* Floating emojis */}
+        <div className="absolute top-40 left-20 text-5xl bounce-playful" style={{animationDelay: '0s'}}>🎯</div>
+        <div className="absolute top-60 right-32 text-5xl bounce-playful" style={{animationDelay: '0.5s'}}>✨</div>
+        <div className="absolute bottom-40 left-1/4 text-5xl bounce-playful" style={{animationDelay: '1s'}}>💡</div>
+
+        <div className="max-w-3xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-6 px-8 py-3 bg-[hsl(var(--color-yellow))]/20 border-3 border-[hsl(var(--color-yellow))] rounded-full text-[hsl(var(--color-yellow))] font-bold text-base pulse-glow scale-pulse">
+              🎉 TAKE THE QUIZ
+            </div>
+            <h2 className="text-center mb-6 text-white zoom-in">
+              DISCOVER YOUR <span className="bg-gradient-to-r from-[hsl(var(--color-yellow))] via-[hsl(40,92%,66%)] to-[hsl(var(--color-yellow))] bg-clip-text text-transparent gradient-shift">IMPACT</span>
+            </h2>
+            <p className="text-center text-xl text-white/80 slide-up" style={{animationDelay: '0.2s'}}>
+              Find your unique role in building <span className="text-[hsl(var(--color-yellow))] font-bold">stronger communities</span> 🌟
+            </p>
+          </div>
+
+          <div className="bg-white rounded-[24px] p-12 shadow-2xl hover:shadow-hover transition-all duration-300 zoom-in" style={{animationDelay: '0.3s'}}>
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]">Step {quizStep} of 9</span>
-                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]/60">{Math.round((quizStep / 9) * 100)}% Complete</span>
+                <span className="text-sm font-semibold text-[hsl(var(--color-navy))] flex items-center gap-2">
+                  📝 Step {quizStep} of 9
+                </span>
+                <span className="text-sm font-semibold text-[hsl(var(--color-yellow))] bg-[hsl(var(--color-yellow))]/10 px-4 py-1 rounded-full">
+                  {Math.round((quizStep / 9) * 100)}% Complete 🎉
+                </span>
               </div>
-              <div className="w-full bg-[hsl(var(--color-light-blue))] rounded-full h-3">
+              <div className="w-full bg-[hsl(var(--color-light-blue))]/30 rounded-full h-4 overflow-hidden shadow-inner">
                 <div
-                  className="bg-[hsl(var(--color-yellow))] h-3 rounded-full transition-all duration-300"
+                  className="bg-gradient-to-r from-[hsl(var(--color-yellow))] to-[hsl(40,92%,66%)] h-4 rounded-full transition-all duration-500 relative gradient-shift"
                   style={{ width: `${(quizStep / 9) * 100}%` }}
-                />
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse" />
+                </div>
               </div>
             </div>
 
@@ -660,16 +779,16 @@ export default function MutualAidLanding() {
               {quizStep > 1 && (
                 <button
                   onClick={() => setQuizStep(quizStep - 1)}
-                  className="px-8 py-4 border-2 border-[hsl(var(--color-navy))] text-[hsl(var(--color-navy))] rounded-[24px] font-bold hover:bg-[hsl(var(--color-navy))] hover:text-white transition-all"
+                  className="px-8 py-4 border-2 border-[hsl(var(--color-navy))] text-[hsl(var(--color-navy))] rounded-[24px] font-bold hover:bg-[hsl(var(--color-navy))] hover:text-white hover:scale-105 transition-all"
                 >
-                  BACK
+                  ⬅️ BACK
                 </button>
               )}
               <button
                 onClick={handleQuizNext}
-                className="flex-1 btn-gradient text-lg"
+                className="flex-1 btn-gradient text-lg pulse-glow transform hover:scale-105 transition-transform"
               >
-                {quizStep === 9 ? 'DISCOVER YOUR IMPACT' : 'NEXT'}
+                {quizStep === 9 ? '🎯 DISCOVER YOUR IMPACT' : 'NEXT ➡️'}
               </button>
             </div>
           </div>
