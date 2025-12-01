@@ -10,11 +10,16 @@ export default function MutualAidLanding() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [quizStep, setQuizStep] = useState(1)
   const [quizData, setQuizData] = useState({
+    name: '',
+    age: '',
+    gender: '',
     involvementLevel: '',
     timeCommitment: '',
     interactionStyle: '',
     skills: '',
     location: '',
+    interests: '',
+    availability: '',
     email: ''
   })
 
@@ -106,7 +111,7 @@ export default function MutualAidLanding() {
   ]
 
   const handleQuizNext = () => {
-    if (quizStep < 6) {
+    if (quizStep < 9) {
       setQuizStep(quizStep + 1)
     } else {
       // Submit quiz and redirect to results
@@ -196,7 +201,7 @@ export default function MutualAidLanding() {
 
             <div className="relative">
               <img
-                src="/generated/hero-community.png"
+                src="/generated/hero-community-new.png"
                 alt="Community working together"
                 className="w-full h-auto float"
               />
@@ -226,27 +231,33 @@ export default function MutualAidLanding() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-center mb-20">THE HISTORY OF MUTUAL AID</h2>
 
+          {/* Timeline Connecting Line */}
+          <div className="absolute left-1/2 top-48 bottom-32 w-1 bg-[hsl(var(--color-yellow))]/30 hidden md:block" />
+
           <div className="space-y-20">
             {timelineData.map((item, index) => (
               <div
                 key={index}
-                className="relative"
+                className="relative timeline-item group"
                 style={{
                   transform: scrollY > (800 + index * 300) ? 'translateY(0)' : 'translateY(50px)',
                   opacity: scrollY > (800 + index * 300) ? 1 : 0,
                   transition: 'all 0.6s ease'
                 }}
               >
+                {/* Timeline Dot */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[hsl(var(--color-yellow))] border-4 border-[hsl(var(--color-light-blue))] hidden md:block z-10 group-hover:scale-150 group-hover:shadow-lg transition-all duration-300" />
+
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                    <div className="inline-block px-6 py-2 bg-[hsl(var(--color-yellow))] rounded-full mb-4">
+                  <div className={`${index % 2 === 1 ? 'md:order-2' : ''} group-hover:translate-x-2 transition-all duration-300`}>
+                    <div className="inline-block px-6 py-2 bg-[hsl(var(--color-yellow))] rounded-full mb-4 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
                       <span className="font-bold text-[hsl(var(--color-navy))] text-2xl">{item.year}</span>
                     </div>
-                    <h3 className="mb-4">{item.title}</h3>
+                    <h3 className="mb-4 group-hover:text-[hsl(var(--color-yellow))] transition-colors duration-300">{item.title}</h3>
                     <p className="text-lg text-[hsl(var(--color-navy))]/80">{item.description}</p>
                   </div>
-                  <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <div className="w-full h-64 rounded-[16px] bg-[hsl(var(--color-dark-navy))] shadow-card flex items-center justify-center text-white text-6xl">
+                  <div className={`${index % 2 === 1 ? 'md:order-1' : ''} group-hover:-translate-x-2 transition-all duration-300`}>
+                    <div className="w-full h-64 rounded-[16px] bg-[hsl(var(--color-dark-navy))] shadow-card flex items-center justify-center text-white text-6xl group-hover:shadow-hover group-hover:scale-105 group-hover:bg-[hsl(var(--color-navy))] transition-all duration-300 cursor-pointer">
                       {index === 0 ? '🏠' : index === 1 ? '🌱' : index === 2 ? '💻' : '⭐'}
                     </div>
                   </div>
@@ -419,13 +430,13 @@ export default function MutualAidLanding() {
           <div className="bg-white rounded-[24px] p-12 shadow-card">
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]">Step {quizStep} of 6</span>
-                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]/60">{Math.round((quizStep / 6) * 100)}% Complete</span>
+                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]">Step {quizStep} of 9</span>
+                <span className="text-sm font-semibold text-[hsl(var(--color-navy))]/60">{Math.round((quizStep / 9) * 100)}% Complete</span>
               </div>
               <div className="w-full bg-[hsl(var(--color-light-blue))] rounded-full h-3">
                 <div
                   className="bg-[hsl(var(--color-yellow))] h-3 rounded-full transition-all duration-300"
-                  style={{ width: `${(quizStep / 6) * 100}%` }}
+                  style={{ width: `${(quizStep / 9) * 100}%` }}
                 />
               </div>
             </div>
@@ -433,38 +444,75 @@ export default function MutualAidLanding() {
             <div className="space-y-6">
               {quizStep === 1 && (
                 <div>
-                  <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
-                    What's your current level of community involvement?
-                  </label>
-                  <select
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
-                    value={quizData.involvementLevel}
-                    onChange={(e) => setQuizData({...quizData, involvementLevel: e.target.value})}
-                  >
-                    <option value="">Select an option</option>
-                    <option value="new">Just getting started</option>
-                    <option value="some">Some experience</option>
-                    <option value="active">Very active</option>
-                    <option value="organizer">Community organizer</option>
-                  </select>
+                  <h3 className="text-2xl font-bold text-[hsl(var(--color-navy))] mb-6">Let's get to know you!</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-base font-semibold text-[hsl(var(--color-navy))] mb-2">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                        value={quizData.name}
+                        onChange={(e) => setQuizData({...quizData, name: e.target.value})}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-base font-semibold text-[hsl(var(--color-navy))] mb-2">
+                        Your Age
+                      </label>
+                      <select
+                        className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                        value={quizData.age}
+                        onChange={(e) => setQuizData({...quizData, age: e.target.value})}
+                      >
+                        <option value="">Select your age range</option>
+                        <option value="18-24">18-24 years old</option>
+                        <option value="25-34">25-34 years old</option>
+                        <option value="35-44">35-44 years old</option>
+                        <option value="45-54">45-54 years old</option>
+                        <option value="55-64">55-64 years old</option>
+                        <option value="65+">65+ years old</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-base font-semibold text-[hsl(var(--color-navy))] mb-2">
+                        Gender
+                      </label>
+                      <select
+                        className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                        value={quizData.gender}
+                        onChange={(e) => setQuizData({...quizData, gender: e.target.value})}
+                      >
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="non-binary">Non-binary</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               )}
 
               {quizStep === 2 && (
                 <div>
                   <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
-                    How much time can you commit each month?
+                    What's your current level of community involvement?
                   </label>
                   <select
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
-                    value={quizData.timeCommitment}
-                    onChange={(e) => setQuizData({...quizData, timeCommitment: e.target.value})}
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.involvementLevel}
+                    onChange={(e) => setQuizData({...quizData, involvementLevel: e.target.value})}
                   >
                     <option value="">Select an option</option>
-                    <option value="1-5">1-5 hours</option>
-                    <option value="5-10">5-10 hours</option>
-                    <option value="10-20">10-20 hours</option>
-                    <option value="20+">20+ hours</option>
+                    <option value="new">Just getting started - I'm new to community organizing</option>
+                    <option value="some">Some experience - I've volunteered a few times</option>
+                    <option value="active">Very active - I regularly participate in community events</option>
+                    <option value="organizer">Community organizer - I lead initiatives and coordinate efforts</option>
+                    <option value="leader">Experienced leader - I've founded or run community organizations</option>
                   </select>
                 </div>
               )}
@@ -472,18 +520,19 @@ export default function MutualAidLanding() {
               {quizStep === 3 && (
                 <div>
                   <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
-                    What's your preferred interaction style?
+                    How much time can you commit each month?
                   </label>
                   <select
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
-                    value={quizData.interactionStyle}
-                    onChange={(e) => setQuizData({...quizData, interactionStyle: e.target.value})}
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.timeCommitment}
+                    onChange={(e) => setQuizData({...quizData, timeCommitment: e.target.value})}
                   >
                     <option value="">Select an option</option>
-                    <option value="in-person">In-person activities</option>
-                    <option value="online">Online/remote</option>
-                    <option value="hybrid">Flexible mix</option>
-                    <option value="behind-scenes">Behind-the-scenes support</option>
+                    <option value="1-3">1-3 hours per month - I have limited availability</option>
+                    <option value="4-8">4-8 hours per month - A few hours each week</option>
+                    <option value="9-15">9-15 hours per month - Substantial weekly commitment</option>
+                    <option value="16-25">16-25 hours per month - Several hours per week</option>
+                    <option value="25+">25+ hours per month - Significant ongoing involvement</option>
                   </select>
                 </div>
               )}
@@ -491,29 +540,35 @@ export default function MutualAidLanding() {
               {quizStep === 4 && (
                 <div>
                   <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
-                    What skills would you like to contribute?
+                    What's your preferred interaction style?
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g., cooking, teaching, organizing, tech support..."
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
-                    value={quizData.skills}
-                    onChange={(e) => setQuizData({...quizData, skills: e.target.value})}
-                  />
+                  <select
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.interactionStyle}
+                    onChange={(e) => setQuizData({...quizData, interactionStyle: e.target.value})}
+                  >
+                    <option value="">Select an option</option>
+                    <option value="in-person">In-person activities - I prefer face-to-face interaction</option>
+                    <option value="online">Online/remote - Virtual meetings and digital collaboration</option>
+                    <option value="hybrid">Flexible mix - Both in-person and online works for me</option>
+                    <option value="behind-scenes">Behind-the-scenes support - Administrative and planning work</option>
+                    <option value="event-based">Event-based - I prefer participating in organized events</option>
+                  </select>
                 </div>
               )}
 
               {quizStep === 5 && (
                 <div>
                   <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
-                    What's your location?
+                    What skills would you like to contribute?
                   </label>
-                  <input
-                    type="text"
-                    placeholder="City, State or Zip Code"
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
-                    value={quizData.location}
-                    onChange={(e) => setQuizData({...quizData, location: e.target.value})}
+                  <p className="text-sm text-[hsl(var(--color-navy))]/70 mb-3">Select all areas where you have experience or interest</p>
+                  <textarea
+                    rows={4}
+                    placeholder="e.g., cooking for community meals, teaching ESL, organizing events, tech support, childcare, transportation, medical skills, counseling, gardening, carpentry, translation..."
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors resize-none"
+                    value={quizData.skills}
+                    onChange={(e) => setQuizData({...quizData, skills: e.target.value})}
                   />
                 </div>
               )}
@@ -521,12 +576,79 @@ export default function MutualAidLanding() {
               {quizStep === 6 && (
                 <div>
                   <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
+                    What areas of mutual aid interest you most?
+                  </label>
+                  <select
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.interests}
+                    onChange={(e) => setQuizData({...quizData, interests: e.target.value})}
+                  >
+                    <option value="">Select your primary interest</option>
+                    <option value="food-security">Food security & community meals</option>
+                    <option value="housing">Housing support & tenant organizing</option>
+                    <option value="childcare">Childcare & family support</option>
+                    <option value="education">Education & tutoring</option>
+                    <option value="healthcare">Healthcare access & support</option>
+                    <option value="transportation">Transportation assistance</option>
+                    <option value="technology">Technology & digital literacy</option>
+                    <option value="legal">Legal aid & advocacy</option>
+                    <option value="mental-health">Mental health & emotional support</option>
+                    <option value="environmental">Environmental justice & sustainability</option>
+                    <option value="emergency">Emergency response & disaster relief</option>
+                    <option value="all">Open to all areas</option>
+                  </select>
+                </div>
+              )}
+
+              {quizStep === 7 && (
+                <div>
+                  <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
+                    When are you typically available?
+                  </label>
+                  <select
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.availability}
+                    onChange={(e) => setQuizData({...quizData, availability: e.target.value})}
+                  >
+                    <option value="">Select your availability</option>
+                    <option value="weekday-mornings">Weekday mornings (9am-12pm)</option>
+                    <option value="weekday-afternoons">Weekday afternoons (12pm-5pm)</option>
+                    <option value="weekday-evenings">Weekday evenings (5pm-9pm)</option>
+                    <option value="weekends-all">Weekends (any time)</option>
+                    <option value="weekends-mornings">Weekend mornings</option>
+                    <option value="weekends-afternoons">Weekend afternoons</option>
+                    <option value="flexible">Flexible schedule - varies week to week</option>
+                    <option value="varies">Varies - based on specific needs and events</option>
+                  </select>
+                </div>
+              )}
+
+              {quizStep === 8 && (
+                <div>
+                  <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
+                    What's your location?
+                  </label>
+                  <p className="text-sm text-[hsl(var(--color-navy))]/70 mb-3">This helps us connect you with local mutual aid networks</p>
+                  <input
+                    type="text"
+                    placeholder="City, State or Zip Code"
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
+                    value={quizData.location}
+                    onChange={(e) => setQuizData({...quizData, location: e.target.value})}
+                  />
+                </div>
+              )}
+
+              {quizStep === 9 && (
+                <div>
+                  <label className="block text-lg font-bold text-[hsl(var(--color-navy))] mb-4">
                     Enter your email to receive your personalized results
                   </label>
+                  <p className="text-sm text-[hsl(var(--color-navy))]/70 mb-3">We'll send you customized recommendations and connect you with local opportunities</p>
                   <input
                     type="email"
                     placeholder="your.email@example.com"
-                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))]"
+                    className="w-full p-4 border-2 border-[hsl(var(--color-light-blue))] rounded-[12px] text-[hsl(var(--color-navy))] focus:border-[hsl(var(--color-yellow))] focus:outline-none transition-colors"
                     value={quizData.email}
                     onChange={(e) => setQuizData({...quizData, email: e.target.value})}
                   />
@@ -547,7 +669,7 @@ export default function MutualAidLanding() {
                 onClick={handleQuizNext}
                 className="flex-1 btn-gradient text-lg"
               >
-                {quizStep === 6 ? 'DISCOVER YOUR IMPACT' : 'NEXT'}
+                {quizStep === 9 ? 'DISCOVER YOUR IMPACT' : 'NEXT'}
               </button>
             </div>
           </div>
